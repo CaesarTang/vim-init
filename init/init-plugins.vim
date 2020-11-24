@@ -1,6 +1,11 @@
+" Copyright (c) 2020 xxx Inc. All rights reserved.
+" Author            : Your Name <your email@xxx.com>
+" Date              : 2020-11-24 17:41:29
+" Last Modified Date: 2020-11-24 19:16:20
+" Last Modified By  : Your Name <your email@xxx.com>
 "======================================================================
 "
-" init-plugins.vim - 
+" init-plugins.vim -
 "
 " Created by skywind on 2018/05/31
 " Last Modified: 2018/06/10 23:11
@@ -38,7 +43,7 @@ call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 
 
 "----------------------------------------------------------------------
-" 默认插件 
+" 默认插件
 "----------------------------------------------------------------------
 
 " 全文快速移动，<leader><leader>f{char} 即可触发
@@ -175,7 +180,7 @@ if index(g:bundle_group, 'enhanced') >= 0
 
 	" 基于窗口的联想补全
 	Plug 'vim-scripts/AutoComplPop'
-	
+
 	" ALT_+/- 用于按分隔符扩大缩小 v 选区
 	map <m-=> <Plug>(expand_region_expand)
 	map <m--> <Plug>(expand_region_shrink)
@@ -209,7 +214,7 @@ if index(g:bundle_group, 'tags') >= 0
 	let g:gutentags_cache_dir = s:vim_tags
 
 	" 默认禁用自动生成
-	let g:gutentags_modules = [] 
+	let g:gutentags_modules = []
 
 	" 如果有 ctags 可执行就允许动态生成 ctags 文件
 	if executable('ctags')
@@ -280,6 +285,24 @@ if index(g:bundle_group, 'filetypes') >= 0
 	" C++ 语法高亮增强，支持 11/14/17 标准
 	Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 
+	" shell语法高亮
+	Plug 'Shougo/vimshell.vim'
+
+	" protobuf高亮
+	Plug 'uarun/vim-protobuf'
+
+	" thrift高亮
+	Plug 'solarnz/thrift.vim'
+
+	" 显示结尾的多余空格
+	Plug 'bitc/vim-bad-whitespace'
+
+	" 自动格式化
+	Plug 'chiel92/vim-autoformat'
+
+	" 彩虹括号,便于区分不同的括号
+	Plug 'kien/rainbow_parentheses.vim'
+
 	" 高亮类，成员函数，标准库和模板
 	let g:cpp_class_scope_highlight = 1
 	let g:cpp_member_variable_highlight = 1
@@ -297,8 +320,11 @@ if index(g:bundle_group, 'filetypes') >= 0
 	" rust 语法增强
 	Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
-	" vim org-mode 
+	" vim org-mode
 	Plug 'jceb/vim-orgmode', { 'for': 'org' }
+
+	" 在源文件与头文件间切换
+	Plug 'vim-scripts/a.vim'
 
 	" 自动添加文件头
 	Plug 'alpertuna/vim-header'

@@ -1,3 +1,8 @@
+" Copyright (c) 2020 xxx Inc. All rights reserved.
+" Author            : Your Name <your email@xxx.com>
+" Date              : 2020-11-24 19:09:31
+" Last Modified Date: 2020-11-24 19:10:05
+" Last Modified By  : Your Name <your email@xxx.com>
 "======================================================================
 "
 " init-keymaps.vim - 按键设置，按你喜欢更改
@@ -331,3 +336,9 @@ else
 endif
 
 
+"-------------------------------------------------------------------
+" CaesarTang补充常用的键盘映射
+" 多个文件间切换
+"-------------------------------------------------------------------
+nmap , <C-W>h
+nmap . <C-W><C-W>

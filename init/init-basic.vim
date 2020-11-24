@@ -1,3 +1,8 @@
+" Copyright (c) 2020 xxx Inc. All rights reserved.
+" Author            : Your Name <your email@xxx.com>
+" Date              : 2020-11-24 17:59:00
+" Last Modified Date: 2020-11-24 18:00:46
+" Last Modified By  : Your Name <your email@xxx.com>
 "======================================================================
 "
 " init-basic.vim - 基础配置，该配置需要兼容 vim tiny 模式
@@ -108,7 +113,7 @@ set display=lastline
 set wildmenu
 
 " 延迟绘制（提升性能）
-set lazyredraw
+"set lazyredraw
 
 " 错误格式
 set errorformat+=[%f:%l]\ ->\ %m,[%f:%l]:%m

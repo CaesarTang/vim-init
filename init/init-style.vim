@@ -1,3 +1,8 @@
+" Copyright (c) 2020 xxx Inc. All rights reserved.
+" Author            : Your Name <your email@xxx.com>
+" Date              : 2020-11-24 18:49:20
+" Last Modified Date: 2020-11-24 18:49:21
+" Last Modified By  : Your Name <your email@xxx.com>
 "======================================================================
 "
 " init-style.vim - 显示样式设置
@@ -29,7 +34,7 @@ set showtabline=2
 set list
 
 " 右下角显示命令
-set showcmd
+"set showcmd
 
 " 插入模式在状态栏下面显示 -- INSERT --，
 " 先注释掉，默认已经为真了，如果这里再设置一遍会影响 echodoc 插件
