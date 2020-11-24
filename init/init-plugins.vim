@@ -169,6 +169,12 @@ if index(g:bundle_group, 'enhanced') >= 0
 
 	" 提供 gist 接口
 	Plug 'lambdalisue/vim-gista', { 'on': 'Gista' }
+
+	" 基于ctag的自动补全
+	Plug 'vim-scripts/OmniCppComplete'
+
+	" 基于窗口的联想补全
+	Plug 'vim-scripts/AutoComplPop'
 	
 	" ALT_+/- 用于按分隔符扩大缩小 v 选区
 	map <m-=> <Plug>(expand_region_expand)
@@ -191,11 +197,16 @@ if index(g:bundle_group, 'tags') >= 0
 	Plug 'skywind3000/gutentags_plus'
 
 	" 设定项目目录标志：除了 .git/.svn 外，还有 .root 文件
-	let g:gutentags_project_root = ['.root']
+	let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
 	let g:gutentags_ctags_tagfile = '.tags'
 
 	" 默认生成的数据文件集中到 ~/.cache/tags 避免污染项目目录，好清理
-	let g:gutentags_cache_dir = expand('~/.cache/tags')
+	let s:vim_tags = expand('~/.cache/tags')
+	" 检测 ~/.cache/tags 不存在就新建
+	if !isdirectory(s:vim_tags)
+	   silent! call mkdir(s:vim_tags, 'p')
+	endif
+	let g:gutentags_cache_dir = s:vim_tags
 
 	" 默认禁用自动生成
 	let g:gutentags_modules = [] 
@@ -215,12 +226,15 @@ if index(g:bundle_group, 'tags') >= 0
 	let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
 	let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
 	let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+	let g:gutentags_ctags_extra_args += ['--exclude=*boost*', '--exclude=*thirdparty*']
 
 	" 使用 universal-ctags 的话需要下面这行，请反注释
 	" let g:gutentags_ctags_extra_args += ['--output-format=e-ctags']
 
 	" 禁止 gutentags 自动链接 gtags 数据库
-	let g:gutentags_auto_add_gtags_cscope = 0
+	let g:gutentags_auto_add_gtags_cscopa = 0
+	let g:gutentags_generate_on_empty_buffer = 1
+	let g:gutentags_generate_on_write = 0
 endif
 
 
@@ -266,6 +280,14 @@ if index(g:bundle_group, 'filetypes') >= 0
 	" C++ 语法高亮增强，支持 11/14/17 标准
 	Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 
+	" 高亮类，成员函数，标准库和模板
+	let g:cpp_class_scope_highlight = 1
+	let g:cpp_member_variable_highlight = 1
+	let g:cpp_concepts_highlight = 1
+	"let g:cpp_experimental_simple_template_highlight = 1
+	" 文件较大时使用下面的设置高亮模板速度较快，但会有一些小错误
+	let g:cpp_experimental_template_highlight = 1
+
 	" 额外语法文件
 	Plug 'justinmk/vim-syntax-extra', { 'for': ['c', 'bison', 'flex', 'cpp'] }
 
@@ -277,6 +299,18 @@ if index(g:bundle_group, 'filetypes') >= 0
 
 	" vim org-mode 
 	Plug 'jceb/vim-orgmode', { 'for': 'org' }
+
+	" 自动添加文件头
+	Plug 'alpertuna/vim-header'
+	let g:header_field_author = 'Your Name'
+	let g:header_field_author_email = 'your email@xxx.com'
+	let g:header_auto_add_header = 1
+	let g:header_auto_update_header = 1
+	let g:header_field_filename = 0
+	let g:header_field_timestamp_format = '%Y-%m-%d %H:%M:%S'
+	let g:header_field_copyright = 'Copyright (c) 2020 xxx Inc. All rights reserved.'
+	let g:header_alignment = 1
+	let g:header_max_size = 20
 endif
 
 
