@@ -1,8 +1,3 @@
-" Copyright (c) 2020 xxx Inc. All rights reserved.
-" Author            : Your Name <your email@xxx.com>
-" Date              : 2020-11-24 17:41:29
-" Last Modified Date: 2020-11-24 19:16:20
-" Last Modified By  : Your Name <your email@xxx.com>
 "======================================================================
 "
 " init-plugins.vim -
@@ -285,6 +280,26 @@ if index(g:bundle_group, 'filetypes') >= 0
 	" C++ 语法高亮增强，支持 11/14/17 标准
 	Plug 'octol/vim-cpp-enhanced-highlight', { 'for': ['c', 'cpp'] }
 
+	" 高亮类，成员函数，标准库和模板
+	let g:cpp_class_scope_highlight = 1
+	let g:cpp_member_variable_highlight = 1
+	let g:cpp_concepts_highlight = 1
+	"let g:cpp_experimental_simple_template_highlight = 1
+	" 文件较大时使用下面的设置高亮模板速度较快，但会有一些小错误
+	let g:cpp_experimental_template_highlight = 1
+
+	" 额外语法文件,打开后只有一半括号有颜色,先注释掉
+	"Plug 'justinmk/vim-syntax-extra', { 'for': ['c', 'bison', 'flex', 'cpp'] }
+
+	" python 语法文件增强
+	Plug 'vim-python/python-syntax', { 'for': ['python'] }
+
+	" rust 语法增强
+	Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+
+	" vim org-mode
+	Plug 'jceb/vim-orgmode', { 'for': 'org' }
+
 	" shell语法高亮
 	Plug 'Shougo/vimshell.vim'
 
@@ -302,26 +317,6 @@ if index(g:bundle_group, 'filetypes') >= 0
 
 	" 彩虹括号,便于区分不同的括号
 	Plug 'kien/rainbow_parentheses.vim'
-
-	" 高亮类，成员函数，标准库和模板
-	let g:cpp_class_scope_highlight = 1
-	let g:cpp_member_variable_highlight = 1
-	let g:cpp_concepts_highlight = 1
-	"let g:cpp_experimental_simple_template_highlight = 1
-	" 文件较大时使用下面的设置高亮模板速度较快，但会有一些小错误
-	let g:cpp_experimental_template_highlight = 1
-
-	" 额外语法文件
-	Plug 'justinmk/vim-syntax-extra', { 'for': ['c', 'bison', 'flex', 'cpp'] }
-
-	" python 语法文件增强
-	Plug 'vim-python/python-syntax', { 'for': ['python'] }
-
-	" rust 语法增强
-	Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-
-	" vim org-mode
-	Plug 'jceb/vim-orgmode', { 'for': 'org' }
 
 	" 在源文件与头文件间切换
 	Plug 'vim-scripts/a.vim'
