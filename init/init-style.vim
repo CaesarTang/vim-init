@@ -1,8 +1,3 @@
-" Copyright (c) 2020 xxx Inc. All rights reserved.
-" Author            : Your Name <your email@xxx.com>
-" Date              : 2020-11-24 18:49:20
-" Last Modified Date: 2020-11-24 18:49:21
-" Last Modified By  : Your Name <your email@xxx.com>
 "======================================================================
 "
 " init-style.vim - 显示样式设置
@@ -27,8 +22,11 @@ set number
 " 总是显示侧边栏（用于显示 mark/gitdiff/诊断信息）
 set signcolumn=yes
 
-" 总是显示标签栏
-set showtabline=2
+" set showtabline=0 不显示标签栏
+" set showtabline=1 这是默认设置，意思是，在创建标签页后才显示标签栏
+" set showtabline=2 总是显示标签栏
+" 在创建标签页后才显示标签栏
+set showtabline=1
 
 " 设置显示制表符等隐藏字符
 set list
