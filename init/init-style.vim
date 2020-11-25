@@ -20,7 +20,8 @@ set laststatus=2
 set number
 
 " 总是显示侧边栏（用于显示 mark/gitdiff/诊断信息）
-set signcolumn=yes
+"set signcolumn=yes
+set signcolumn=no
 
 " set showtabline=0 不显示标签栏
 " set showtabline=1 这是默认设置，意思是，在创建标签页后才显示标签栏
